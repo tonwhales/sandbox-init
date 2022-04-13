@@ -1,0 +1,14 @@
+{
+  "name": "sparkle-init",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/tonwhales/sparkle-init.git",
+  "author": "Steve Korshakov <steve@korshakov.com>",
+  "license": "MIT",
+  "scripts": {
+    "build": "./build.sh"
+  },
+  "dependencies": {
+    "ton-compiler": "^1.0.0"
+  }
+}
