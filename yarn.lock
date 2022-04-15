@@ -202,6 +202,11 @@ io-ts@^2.2.16:
   resolved "https://registry.yarnpkg.com/io-ts/-/io-ts-2.2.16.tgz#597dffa03db1913fc318c9c6df6931cb4ed808b2"
   integrity sha512-y5TTSa6VP6le0hhmIyN0dqEXkrZeJLeC5KApJq6VLci3UEKF80lZ+KuoUs02RhBxNWlrqSNxzfI7otLX1Euv8Q==
 
+ip-parse@^1.0.5:
+  version "1.0.5"
+  resolved "https://registry.yarnpkg.com/ip-parse/-/ip-parse-1.0.5.tgz#e1fbcdc3e3479f83ee56e0759ad4a4208d442d5c"
+  integrity sha512-N/NvRXcecIgZ/Fdbg7hzWEFRV0q9KFLtRCgJgLMSObZJfpBVg/nPr6vIaoeT0TDLoF0IsoEy1rNx+SIJN6CTmg==
+
 is-hex-prefixed@1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/is-hex-prefixed/-/is-hex-prefixed-1.0.0.tgz#7d8d37e6ad77e5d127148913c573e082d777f554"

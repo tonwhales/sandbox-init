@@ -6,13 +6,15 @@
   "author": "Steve Korshakov <steve@korshakov.com>",
   "license": "MIT",
   "scripts": {
-    "configure": "ts-node ./prepare.ts",
+    "zerostate": "ts-node ./script-zerostate.ts",
+    "dht": "ts-node ./script-dht.ts",
     "build": "./build.sh"
   },
   "dependencies": {
     "@types/mkdirp": "^1.0.2",
     "@types/node": "^17.0.24",
     "@types/rimraf": "^3.0.2",
+    "ip-parse": "^1.0.5",
     "mkdirp": "^1.0.4",
     "rimraf": "^3.0.2",
     "ton": "^9.6.0",
