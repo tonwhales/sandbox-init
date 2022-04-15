@@ -6,7 +6,7 @@
   "author": "Steve Korshakov <steve@korshakov.com>",
   "license": "MIT",
   "scripts": {
-    "prepare": "ts-node ./prepare.ts",
+    "configure": "ts-node ./prepare.ts",
     "build": "./build.sh"
   },
   "dependencies": {
