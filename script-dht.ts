@@ -7,9 +7,9 @@ import ipParse from 'ip-parse';
 import { createDHTConfig } from './src/createDHTConfig';
 import { createDHTPublic } from './src/createDHTPublic';
 
-const DHT_IP = ['65.108.200.198', '65.21.194.243'];
-const DHT_MAX_REPLICATION = 10;
-const DHT_MAX_REQUESTS_PER_SECOND = 50;
+const DHT_IP = ['65.21.204.109', '65.21.194.243'];
+const DHT_MAX_REPLICATION = 10; // Max = 10
+const DHT_MAX_REQUESTS_PER_SECOND = 10; // Max = 10
 
 function intToIp(src: number) {
     let b = Buffer.alloc(4);
@@ -52,7 +52,7 @@ function ipToInt(src: string) {
         process.chdir(configDir + '/keys');
 
         // Generate Keys
-        let output = execSync('/usr/bin/ton/utils/generate-random-id -m keys -n dht').toString().split(' ');
+        let output = execSync('/usr/bin/ton/utils/generate-random-id -m keys -n dht').toString().trim().split(' ');
         if (output.length !== 2) {
             throw Error('Invalid output');
         }
@@ -75,6 +75,10 @@ function ipToInt(src: string) {
         i++;
     }
 
+    // Load zerostates
+    const zerostate_fhash = fs.readFileSync(__dirname + '/zerostate/zerostate.fhash').toString('base64');
+    const zerostate_rhash = fs.readFileSync(__dirname + '/zerostate/zerostate.rhash').toString('base64');
+
     // Generate network config
     let config = JSON.stringify({
         "@type": "config.global",
@@ -86,8 +90,30 @@ function ipToInt(src: string) {
                 "@type": "dht.nodes",
                 "nodes": networkConfig
             }
+        },
+        "validator": {
+            "@type": "validator.config.global",
+            "zero_state": {
+                "workchain": -1,
+                "shard": '-9223372036854775808',
+                "seqno": 0,
+                "root_hash": zerostate_rhash,
+                "file_hash": zerostate_fhash
+            },
+            "init_block": {
+                "workchain": -1,
+                "shard": '-9223372036854775808',
+                "seqno": 0,
+                "root_hash": zerostate_rhash,
+                "file_hash": zerostate_fhash
+            }
         }
     }, null, 4);
+
+    // Patch
+    config = config
+        .replace('"-9223372036854775808"', `-9223372036854775808`)
+        .replace('"-9223372036854775808"', `-9223372036854775808`)
 
     // Write configs
     fs.writeFileSync(__dirname + '/dht/config.net.json', config);
