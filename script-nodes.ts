@@ -117,7 +117,7 @@ function ipToInt(src: string) {
             "port": 51935,
             "id": {
                 "@type": "pub.ed25519",
-                "key": fs.readFileSync(__dirname + '/gen/keys/lite-server.uid', 'utf-8')
+                "key": fs.readFileSync(__dirname + '/gen/keys/lite-server.pub').slice(4).toString('base64')
             }
         });
     }
