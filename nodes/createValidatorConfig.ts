@@ -32,6 +32,10 @@ export function createValidatorConfig(args: {
             "@type": "engine.adnl",
             "id": args.adnlValidator,
             "category": 0
+        }, {
+            "@type": "engine.adnl",
+            "id": args.validatorKey,
+            "category": 0
         }],
         "dht": [{
             "@type": "engine.dht",

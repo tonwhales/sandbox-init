@@ -24,6 +24,7 @@ function ipToInt(src: string) {
 
     // Network config
     let networkConfig: any[] = [];
+    let networkLiteServers: any[] = [];
 
     // Generate DHT
     let i = 0;
@@ -109,6 +110,16 @@ function ipToInt(src: string) {
         });
         let validatorStr = JSON.stringify(validatorConfig, null, 4);
         fs.writeFileSync(configDir + '/db/config.json', validatorStr);
+
+        // Liteserver config
+        networkLiteServers.push({
+            "ip": ipToInt(Config.validators.endpoints[i]),
+            "port": 51935,
+            "id": {
+                "@type": "pub.ed25519",
+                "key": fs.readFileSync(__dirname + '/gen/keys/lite-server.uid', 'utf-8')
+            }
+        });
     }
 
     // Load zerostates
@@ -127,6 +138,7 @@ function ipToInt(src: string) {
                 "nodes": networkConfig
             }
         },
+        liteservers: networkLiteServers,
         "validator": {
             "@type": "validator.config.global",
             "zero_state": {
