@@ -64,7 +64,7 @@ config.workchains!
    B,
 b> // data
 empty_cell  // libraries
-GR$5000000 // balance
+GR$10000000000 // balance
 0 // split_depth
 0 // ticktock
 AllOnes 1 * // address: -1:111...111
@@ -107,8 +107,7 @@ Masterchain swap
 GR$10000 GR$100000 GR$30000 sg~10 config.validator_stake_limits!
 
 // Election Durations: elected-for elect-start-before elect-end-before stakes-frozen-for
-// 400000 200000 4000 400000 config.election_params!
-2000 190 10 10 config.election_params!  // DEBUG
+14400 7200 600 7200 config.election_params!
 
 // Config Address: -1:5555...5555
 AllOnes 5 * constant config_addr

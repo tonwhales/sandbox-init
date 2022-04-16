@@ -5,6 +5,6 @@ export const Config = {
         maxRequestPerSecond: 10 // Max = 10
     },
     validators: {
-        endpoints: ['65.108.98.88']
+        endpoints: ['85.10.199.149']
     }
 };
