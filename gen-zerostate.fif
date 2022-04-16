@@ -64,7 +64,7 @@ config.workchains!
    B,
 b> // data
 empty_cell  // libraries
-GR$100000 // balance
+GR$5000000 // balance
 0 // split_depth
 0 // ticktock
 AllOnes 1 * // address: -1:111...111
@@ -100,7 +100,7 @@ Masterchain swap
 // Version, Capabilities (unknown)
 1 capCreateStats capBounceMsgBody or capReportVersion or capShortDequeue or config.version!
 
-// Validators: max-validators max-main-validators min-validators
+// Election Validators: max-validators max-main-validators min-validators
 1000 100 3 config.validator_num!
 
 // Election Stakes: min-stake max-stake min-total-stake max-factor
