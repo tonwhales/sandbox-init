@@ -9,7 +9,8 @@
     "zerostate": "ts-node ./script-zerostate.ts",
     "nodes": "ts-node ./script-nodes.ts",
     "keys": "ts-node ./script-keys.ts",
-    "launch": "ts-node ./script-launch.ts"
+    "launch": "ts-node ./script-launch.ts",
+    "giver": "ts-node ./script-giver.ts"
   },
   "dependencies": {
     "@types/mkdirp": "^1.0.2",
