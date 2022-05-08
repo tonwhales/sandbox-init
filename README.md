@@ -37,5 +37,20 @@ To generate configuration for nodes execute command:
 
 Then copy to nodes and launch network starting from DHT.
 
+## Launch two DHT servers
+
+```bash
+systemctl stop dht-server
+cd /var/ton-dht-server/
+rm -fr *
+<copy dht to this node>
+chown -R validator:validator .
+systemctl start dht-server
+```
+
+## Launch genesis validator
+
+```yarn launch```
+
 # License
 MIT
